@@ -83,8 +83,18 @@ export default class AppraiseStar extends UICorePlugin {
         if (!info) {
             info = this.core.options.appraiseStarConfig.errorInfo; 
         }
-        this.$el.find('.appraise-star--submit').removeClass('loading');
-        this.$el.find('.appraise-star--error').text(info).addClass('active');    
+        this.$el.find('.appraise-star--submit').removeClass('loading').text('').addClass('err');
+        this.$el.find('.appraise-star--error').text(info).addClass('active'); 
+        
+        let timer = setTimeout(() => {
+            clearTimeout(timer);
+            this.$el.find('.appraise-star--submit').removeClass('err');
+        }, 2000);
+
+        let timer2 = setTimeout(() => {
+            clearTimeout(timer2);
+            this.$el.find('.appraise-star--submit').text(this.core.options.appraiseStarConfig.submitButtonText);
+        }, 2200);
     }
 
     successCallback(info) {
@@ -120,11 +130,13 @@ export default class AppraiseStar extends UICorePlugin {
         this.$el.find('.appraise-star--submit').on('click', function () {
             let $this = $(this);
 
-            if ($this.hasClass('active') && !$this.hasClass('over')) {
+            if ($this.hasClass('over') || $this.hasClass('err')) {
+                return;
+            }
+
+            if ($this.hasClass('active')) {
                 $this.addClass('loading');
                 that.core.options.appraiseStarConfig.callbackFn(that.core.options.appraiseStarConfig.starObj, that.successCallback.bind(that), that.errorCallback.bind(that));
-            } else {
-               that.errorCallback();
             }
         });
         return this

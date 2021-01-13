@@ -54,7 +54,7 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		callbackFn: function (starObj, successCallback, errorCallback) {
 			console.log(starObj);
 			setTimeout(function () {
-				successCallback();
+				errorCallback();
 			}, 2000);
 			
 		}
