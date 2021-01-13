@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'eval-source-map',
     entry: {
         // 星级评价
-        'clappr-appraise-star': './src/js/appraiseStar/main.js'
+        'clappr-appraise-star': './src/js/main.js'
     },
     externals: {
       clappr: {

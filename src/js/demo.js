@@ -39,21 +39,21 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		errorInfo: '您的评价对我们很重要',
 		successInfo: '提交成功',
 		starObj: [
-			{
-				id: 0,
-				name: 'evaluation1',
-				star: 0
-			},
-			{
-				id: 1,
-				name: 'evaluation2',
-				star: 0
-			}
+		{
+			id: 0,
+			name: 'evaluation1',
+			star: 0
+		},
+		{
+			id: 1,
+			name: 'evaluation2',
+			star: 0
+		}
 		],
-		callbackFn: function (starObj, success) {
+		callbackFn: function (starObj, successCallback, errorCallback) {
 			console.log(starObj);
 
-			success();
+			successCallback();
 		}
     },
     //调整播放速度
