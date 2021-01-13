@@ -1,5 +1,5 @@
 <div class="appraise-star-wrap" data-appraise-star-button>
-	<%=buttonText%>
+	<button class="appraise-star-control-button"><%=buttonText%></button>
 	<div class="appraise-star-content">
 		<p class="appraise-star--error"><%=errorInfo%></p>
 		<p class="appraise-star--success"><%=successInfo%></p>
@@ -12,15 +12,17 @@
 		<% for (var i = 0; i < starObj.length; i++) { %>
 			<p class="appraise-star--item" data-name="<%= starObj[i].name %>">
 				<label class="appraise-star--label" for=""><%= starObj[i].name %></label>
-				<span class="appraise-star--star" data-index="1"></span>
-				<span class="appraise-star--star" data-index="2"></span>
-				<span class="appraise-star--star" data-index="3"></span>
-				<span class="appraise-star--star" data-index="4"></span>
-				<span class="appraise-star--star" data-index="5"></span>
+				<span class="appraise-star--star <% if (starObj[i].star >= 1) { %>active<% }; %>" data-index="1"></span>
+				<span class="appraise-star--star <% if (starObj[i].star >= 2) { %>active<% }; %>" data-index="2"></span>
+				<span class="appraise-star--star <% if (starObj[i].star >= 3) { %>active<% }; %>" data-index="3"></span>
+				<span class="appraise-star--star <% if (starObj[i].star >= 4) { %>active<% }; %>" data-index="4"></span>
+				<span class="appraise-star--star <% if (starObj[i].star >= 5) { %>active<% }; %>" data-index="5"></span>
 			</p>
 		<% }; %>
 
-		<button class="appraise-star--submit"><%=submitButtonText%></button>
+		<button class="appraise-star--submit <% if (isActive) { %>active<% }; %> <% if (defaultStatus === 1) { %>over<% }; %>" >
+			<% if (defaultStatus === 0) { %><%=submitButtonText%><% }; %>
+		</button>
 		<a class="appraise-star--link" href="">进入评价页面 &gt;</a>
 	</div>		
 </div>

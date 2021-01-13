@@ -10,6 +10,13 @@
     position: relative;
     user-select: none;
 
+    .appraise-star-control-button {
+        background: transparent;
+        border: 0;
+        color: #ffffff;
+        outline: none;
+    }
+
     .appraise-star-content {
         font-size: 12px;
         width: 208px;
@@ -20,7 +27,7 @@
         position: absolute;
         top: -153px;
         left: -104px;
-        margin-left: 20px;
+        // margin-left: 20px;
         color: #ffffff;
         overflow: hidden;
 

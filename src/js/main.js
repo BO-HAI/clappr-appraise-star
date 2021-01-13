@@ -33,7 +33,11 @@ export default class AppraiseStar extends UICorePlugin {
     }
 
     onShowAppraiseStar() {
-        this.$el.find('.appraise-star-content').show();
+        // 样式计算
+        let _cbw_ = this.$el.find('.appraise-star-wrap').width(); 
+        this.$el.find('.appraise-star-content').css({
+            'margin-left': _cbw_ / 2 + 'px'
+        }).show();
     }
 
     hideAppraiseStar() {
@@ -110,6 +114,15 @@ export default class AppraiseStar extends UICorePlugin {
         let that = this;
         let style = Styler.getStyleFor(pluginStyle, { baseUrl: this.core.options.baseUrl })
         this.$el.append(style)
+
+        // 判断是否有默认值, 并设置按钮激活状态
+        this.core.options.appraiseStarConfig.isActive = true;
+        this.core.options.appraiseStarConfig.starObj.forEach((item) => {
+            if (item.star === 0) {
+                this.core.options.appraiseStarConfig.isActive = false;
+            }
+        }); 
+
         this.$el.html(this.template(this.core.options.appraiseStarConfig))
         this.core.mediaControl.$('.media-control-right-panel').append(this.el)
 

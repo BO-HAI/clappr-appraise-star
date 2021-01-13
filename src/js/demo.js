@@ -40,17 +40,18 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		errorInfo: '您的评价对我们很重要',
 		successInfo: '提交成功',
 		starObj: [
-		{
-			id: 0,
-			name: 'evaluation1',
-			star: 0
-		},
-		{
-			id: 1,
-			name: 'evaluation2',
-			star: 0
-		}
+			{
+				id: 0,
+				name: 'evaluation1',
+				star: 0
+			},
+			{
+				id: 1,
+				name: 'evaluation2',
+				star: 0
+			}
 		],
+		defaultStatus: 1,  // 1 已提交过, 0 正常
 		callbackFn: function (starObj, successCallback, errorCallback) {
 			console.log(starObj);
 			setTimeout(function () {
