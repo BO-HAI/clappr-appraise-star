@@ -1,0 +1,158 @@
+.appraise_star[data-appraise-star-selet] {
+    float: left;
+    min-width: 40px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 32px;
+    margin: 0 5px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+
+    .appraise-star-content {
+        font-size: 12px;
+        width: 208px;
+        height: 157px;
+        display: none;
+        background: rgba(37,37,37,0.95);
+        border-radius: 5px;
+        position: absolute;
+        top: -153px;
+        left: -104px;
+        margin-left: 20px;
+        color: #ffffff;
+        overflow: hidden;
+
+        .apprais-star--error{
+            position: absolute;
+            background: #f54030;
+            width: 100%;
+            color: #ffffff;
+            top: -32px;
+            left: 0;
+            height: 32px;
+            transition: all .5s;
+        }
+
+        .apprais-star--error.active {
+            top: 0;
+        }
+
+        .apprais-star--success {
+            position: absolute;
+            background: #21aca8;
+            width: 100%;
+            color: #ffffff;
+            top: -32px;
+            left: 0;
+            height: 32px;
+            transition: all .5s;
+        }
+
+        .apprais-star--success.active {
+            top: 0;
+        }
+
+        .appraise-star--submit {
+            box-sizing: border-box;
+            display: block;
+            width: 196px;
+            height: 28px;
+            border: 1px solid rgba(255,255,255,0.35);
+            margin: auto;
+            border-radius: 18px;
+            background: transparent;
+            color: rgba(255,255,255,0.35);
+            outline:none;
+            cursor: pointer;
+
+            &.active:hover {
+                border: 1px solid rgba(255,255,255,0.85);
+                color: rgba(255,255,255,0.85);;
+            }
+
+            &.active {
+                border: 1px solid rgba(255,255,255,0.65);
+                color: rgba(255,255,255,0.65);;
+            }
+        }
+
+        .appraise-star--link {
+            display: block;
+            text-align: center;
+            margin: auto;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+
+            &:hover {
+                // color: #5A82FF;
+                text-decoration: underline;
+            }
+        }
+
+        .appraise-star--item {
+            &:before, &:after {
+                content: "";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+            /* If supporting IE 6/7 */
+            *zoom: 1;
+        }
+
+        .appraise-star--label {
+            float: left;
+            color: #ffffff;
+            margin: 0 10px;
+        }
+
+        .appraise-star--star {
+            width: 13px;
+            height: 13px;
+            background-image: url('../../../images/star-empty.png');
+            display: inline-block;
+            margin-left: 10px;
+            float: left;
+            position: relative;
+            top: 8px;
+        }
+
+        .appraise-star--star.active {
+            background-image: url('../../../images/star.png');
+        }
+        
+        &::after {
+            content: '';
+            height: 0;
+            border-top: 5px solid rgba(37,37,37,0.75);
+            display: block;
+            width: 0;
+            border-bottom: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin-left: -2.5px;
+
+        }
+
+        // &::before {
+        //     content: '';
+        //     height: 0;
+        //     border-top: 5px solid #dddddd;
+        //     display: block;
+        //     width: 0;
+        //     border-bottom: 0;
+        //     border-left: 5px solid transparent;
+        //     border-right: 5px solid transparent;
+        //     position: absolute;
+        //     bottom: -6px;
+        //     left: 50%;
+        //     margin-left: -2.5px;
+        // }
+    }
+}

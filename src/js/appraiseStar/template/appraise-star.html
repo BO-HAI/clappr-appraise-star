@@ -1,0 +1,26 @@
+<div class="appraise-star-wrap" data-appraise-star-button>
+	<%=buttonText%>
+	<div class="appraise-star-content">
+		<p class="apprais-star--error"><%=errorInfo%></p>
+		<p class="apprais-star--success"><%=successInfo%></p>
+		<h2 class="appraise-star--title">
+			<% if (title) { %>
+				<%= title %>
+			<% }; %>
+		</h2>
+
+		<% for (var i = 0; i < starObj.length; i++) { %>
+			<p class="appraise-star--item" data-name="<%= starObj[i].name %>">
+				<label class="appraise-star--label" for=""><%= starObj[i].name %></label>
+				<span class="appraise-star--star" data-index="1"></span>
+				<span class="appraise-star--star" data-index="2"></span>
+				<span class="appraise-star--star" data-index="3"></span>
+				<span class="appraise-star--star" data-index="4"></span>
+				<span class="appraise-star--star" data-index="5"></span>
+			</p>
+		<% }; %>
+
+		<button class="appraise-star--submit">提交</button>
+		<a class="appraise-star--link" href="">进入评价页面 &gt;</a>
+	</div>		
+</div>
