@@ -1,13 +1,13 @@
 {
-  "name": "ai-learning",
+  "name": "clappr-appraise-star",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
    "start:build": "webpack --config webpack.config",
    "start:dev": "./node_modules/.bin/webpack-dev-server --config webpack.demo.config"
   },
-  "author": "hqwx",
+  "author": "bohai",
   "license": "ISC",
   "peerDependencies": {
     "clappr": "0.x"
