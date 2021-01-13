@@ -36,6 +36,7 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		icon: '',
 		title: 'Video evaluation',
 		link: '',
+		submitButtonText: 'submit',
 		errorInfo: '您的评价对我们很重要',
 		successInfo: '提交成功',
 		starObj: [
@@ -52,8 +53,10 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		],
 		callbackFn: function (starObj, successCallback, errorCallback) {
 			console.log(starObj);
-
-			successCallback();
+			setTimeout(function () {
+				successCallback();
+			}, 2000);
+			
 		}
     },
     //调整播放速度

@@ -38,8 +38,8 @@ export default class AppraiseStar extends UICorePlugin {
 
     hideAppraiseStar() {
         this.$el.find('.appraise-star-content').hide();
-        this.$el.find('.apprais-star--errorinfo').removeClass('active');
-        this.$el.find('.apprais-star--success').removeClass('active');
+        this.$el.find('.appraise-star--error').removeClass('active');
+        this.$el.find('.appraise-star--success').removeClass('active');
     }
 
     /**
@@ -83,14 +83,16 @@ export default class AppraiseStar extends UICorePlugin {
         if (!info) {
             info = this.core.options.appraiseStarConfig.errorInfo; 
         }
-        this.$el.find('.apprais-star--error').text(info).addClass('active');    
+        this.$el.find('.appraise-star--submit').removeClass('loading');
+        this.$el.find('.appraise-star--error').text(info).addClass('active');    
     }
 
     successCallback(info) {
         if (!info) {
             info = this.core.options.appraiseStarConfig.successInfo; 
         }
-        this.$el.find('.apprais-star--success').text(info).addClass('active');    
+        this.$el.find('.appraise-star--submit').removeClass('loading').text('').addClass('over');
+        this.$el.find('.appraise-star--success').text(info).addClass('active');    
     }
     
 
@@ -118,7 +120,8 @@ export default class AppraiseStar extends UICorePlugin {
         this.$el.find('.appraise-star--submit').on('click', function () {
             let $this = $(this);
 
-            if ($this.hasClass('active')) {
+            if ($this.hasClass('active') && !$this.hasClass('over')) {
+                $this.addClass('loading');
                 that.core.options.appraiseStarConfig.callbackFn(that.core.options.appraiseStarConfig.starObj, that.successCallback.bind(that), that.errorCallback.bind(that));
             } else {
                that.errorCallback();

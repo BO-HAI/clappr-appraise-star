@@ -24,7 +24,7 @@
         color: #ffffff;
         overflow: hidden;
 
-        .apprais-star--error{
+        .appraise-star--error{
             position: absolute;
             background: #f54030;
             width: 100%;
@@ -32,14 +32,16 @@
             top: -32px;
             left: 0;
             height: 32px;
+            line-height: 32px;
             transition: all .5s;
+            display: none;
         }
 
-        .apprais-star--error.active {
+        .appraise-star--error.active {
             top: 0;
         }
 
-        .apprais-star--success {
+        .appraise-star--success {
             position: absolute;
             background: #21aca8;
             width: 100%;
@@ -47,10 +49,12 @@
             top: -32px;
             left: 0;
             height: 32px;
+            line-height: 32px;
             transition: all .5s;
+            display: none;
         }
 
-        .apprais-star--success.active {
+        .appraise-star--success.active {
             top: 0;
         }
 
@@ -66,15 +70,53 @@
             color: rgba(255,255,255,0.35);
             outline:none;
             cursor: pointer;
+            position: relative;
+            transition: all .5s;
 
             &.active:hover {
                 border: 1px solid rgba(255,255,255,0.85);
-                color: rgba(255,255,255,0.85);;
+                color: rgba(255,255,255,0.85);
+            }
+
+            &.over {
+                width: 28px;
+                font-size: 14px;
+                color: #7effb9 !important;
+                border: 1px solid #7effb9 !important;
+            }
+
+            &.over::after {
+                content: '✓';
             }
 
             &.active {
                 border: 1px solid rgba(255,255,255,0.65);
-                color: rgba(255,255,255,0.65);;
+                color: rgba(255,255,255,0.65);
+            }
+
+            &.loading::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                display: block;
+                position: absolute;
+                right: 28px;
+                border: 1px solid rgba(255,255,255,0.65);
+                top: 7px;
+                border-radius: 50%;
+                border-left: 2px solid #ffffff1f;
+                border-right: 2px solid #ffffff1f;
+                animation: loading 1s linear infinite;
+            }
+
+            @keyframes loading {
+                0% {
+                    transform: rotate(0deg);
+                };
+
+                100% {
+                    transform: rotate(360deg);
+                };
             }
         }
 
