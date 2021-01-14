@@ -23,6 +23,9 @@
 		<button class="appraise-star--submit <% if (isActive) { %>active<% }; %> <% if (defaultStatus === 1) { %>over<% }; %>" >
 			<% if (defaultStatus === 0) { %><%=submitButtonText%><% }; %>
 		</button>
-		<a class="appraise-star--link" href="">进入评价页面 &gt;</a>
+
+		<% if (detailLink && detailLink.length > 0) { %>
+			<a class="appraise-star--link" href="<%=detailLink%>" target="_blank">进入评价页面 &gt;</a>
+		<% } %>
 	</div>		
 </div>
