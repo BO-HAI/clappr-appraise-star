@@ -23,6 +23,7 @@ module.exports = {
         path: PATH.resolve(__dirname, 'dist'),
         library: 'AppraiseStar',
         libraryTarget: 'umd',
+        libraryExport: 'default', // 增加这个属性
     },
     resolve: {
         alias: {

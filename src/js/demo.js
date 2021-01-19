@@ -30,9 +30,9 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
     poster: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HelloWorld.svg/512px-HelloWorld.svg.png",
     parentId: "#player",
     hideMediaControl: false,
-    plugins: [HelloWorld, AppraiseStar.default, PlaybackRatePlugin],
+    plugins: [HelloWorld, AppraiseStar, PlaybackRatePlugin],
     appraiseStarConfig: {
-		buttonText: 'evaluation',
+		  buttonText: 'evaluation',
 		icon: '',
 		title: 'Video evaluation',
 		detailLink: 'http://v.hqwx.com/uc/goods/comment?buyType=3&orderId=32144156&gid=77036&pid=57334&oname=%E5%BB%BA%E7%AD%91%E6%9E%84%E9%80%A0%E8%A6%81%E6%B1%82&otype=1&oid=85398',
@@ -40,16 +40,16 @@ var HelloWorld = Clappr.UIContainerPlugin.extend({
 		errorInfo: '您的评价对我们很重要',
 		successInfo: '提交成功',
 		starObj: [
-		{
-			id: 0,
-			name: 'evaluation1',
-			star: 0 // 默认星
-		},
-		{
-			id: 1,
-			name: 'evaluation2',
-			star: 0
-		}
+			{
+				id: 0,
+				name: 'evaluation1',
+				star: 0 // 默认星
+			},
+			{
+				id: 1,
+				name: 'evaluation2',
+				star: 0
+			}
 		],
 		defaultStatus: 0,  // 设置一个默认状态: 1 已提交过, 0 正常
 		callbackFn: function (starObj, successCallback, errorCallback) {
