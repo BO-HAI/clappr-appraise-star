@@ -106,7 +106,8 @@ export default class AppraiseStar extends UICorePlugin {
             info = this.core.options.appraiseStarConfig.successInfo; 
         }
         this.$el.find('.appraise-star--submit').removeClass('loading').text('').addClass('over');
-        this.$el.find('.appraise-star--success').text(info).addClass('active');    
+        this.$el.find('.appraise-star--success').text(info).addClass('active');
+        this.$el.find('.appraise-star--link').hide();    
     }
     
 
